@@ -5,6 +5,7 @@
 
 This project focuses on building a **conversion prediction system** using real-world event data. It leverages:
 - LightGBM as the primary model,
+- along with Random forest, linear regression as well.
 - MLflow for experiment tracking,
 - Polars for high-performance data manipulation,
 - Integration with GitHub for version control and reproducibility.
