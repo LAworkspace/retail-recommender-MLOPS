@@ -1,1 +1,81 @@
 # retail-recommender-MLOPS
+# 🔍 Conversion Prediction ML Pipeline
+
+## 📌 Project Overview
+
+This project focuses on building a **conversion prediction system** using real-world event data. It leverages:
+- LightGBM as the primary model,
+- MLflow for experiment tracking,
+- Polars for high-performance data manipulation,
+- Integration with GitHub for version control and reproducibility.
+
+---
+
+## ✅ What Has Been Completed
+
+### 1. 📁 Dataset
+- **Input Format**: `.parquet` file
+- **Source**: Enriched event logs with a binary `converted` label
+- **Processing Engine**: `polars` (used for faster-than-pandas transformations)
+
+### 2. ⚙️ Preprocessing
+- Cleaned the dataset
+- Converted timestamps, encoded features
+- Split into train-test sets
+
+### 3. 🧠 Model Training
+- Model used: **LightGBM**
+- Achieved **99.98% accuracy** on the test set
+- Evaluation metrics:
+  - Precision, Recall, F1-score
+  - Confusion matrix analysis
+- Trained two versions of the model (planned multiple baselines)
+
+### 4. 🧪 MLflow Integration
+- **Tracking**:
+  - Parameters (e.g., learning rate, boosting type)
+  - Metrics (e.g., accuracy, precision)
+  - Artifacts (model files, plots)
+- **Model Registry**:
+  - Versions logged with `mlflow.sklearn.log_model()`
+  - Tracked and visualized via MLflow UI
+- **UI Access**:
+  - Hosted via **ngrok** for easy remote access
+
+### 5. 📦 GitHub Integration
+- Code, data loaders, and training pipelines have been added to a GitHub repository
+- Saved MLflow-trained models as artifacts in the repo
+
+---
+
+## 🔧 Tech Stack
+
+| Component        | Tool / Library        |
+|------------------|------------------------|
+| DataFrame Engine | `polars`               |
+| Model            | `lightgbm`             |
+| Tracking         | `mlflow`               |
+| Serving (WIP)    | `mlflow models serve`  |
+| Deployment       | `ngrok`, GitHub        |
+| Notebook IDE     | Google Colab           |
+
+---
+
+## 🚧 Upcoming Work
+
+- [ ] Add model comparison: XGBoost, CatBoost
+- [ ] Deploy model as an API (`FastAPI` or `MLflow REST`)
+- [ ] Streamlit web app for UI
+- [ ] Monitor drift and performance over time
+- [ ] Dockerize the entire pipeline
+- [ ] Add automated retraining pipeline (via GitHub Actions or Airflow)
+
+---
+
+## 🧠 How to Reproduce
+
+1. Clone the repo  
+   ```bash
+   git clone https://github.com/<your-username>/conversion-prediction-mlflow.git
+   cd conversion-prediction-mlflow
+
